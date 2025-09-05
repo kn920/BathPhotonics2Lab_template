@@ -13,7 +13,7 @@ import puzzlepiece as pzp
 # Puzzlepieces
 from puzzlepiece.pieces import scan_value, plotter
 from puzzlepiece.extras import ipython_shims
-from BathPhotonics2Lab_pieces import Andor, Spot_laser, Spot_trigger, NIDAQ, AOM, LL
+from BathPhotonics2Lab_pieces import Andor, Spot_trigger, NIDAQ, AOM, LL, Basler, SerialTerminal
 
 # Measurement function
 import measurement_functions as mf
@@ -45,17 +45,18 @@ class Sample(pzp.Piece):
 # Remember to change the debug flag as needed
 
 shell = get_ipython()
-puzzle = pzp.Puzzle(shell.kernel.app, "DMD scan", debug=False)
+puzzle = pzp.Puzzle(shell.kernel.app, "DMD scan", debug=True)
 
-folder = puzzle.add_folder(0, 0, 3, 3)
+folder = puzzle.add_folder(0, 0, 4, 4)
 folder.add_piece('Andor', Andor.Piece)
+folder.add_piece('Basler', Basler.LineoutPiece)
 folder.add_piece('Plotter', plotter.Piece)
-puzzle.add_piece('Sample', Sample, 3, 0, 1, 1)
-puzzle.add_piece('NIDAQ', NIDAQ.Piece, 0, 4, 1, 1)
-puzzle.add_piece('Spot laser', Spot_laser.Piece, 1, 4, 1, 1)
-puzzle.add_piece('Spot trigger', Spot_trigger.Piece, 2, 4, 1, 1)
-puzzle.add_piece('AOM', AOM.Piece, 3, 4, 1, 1)
-puzzle.add_piece('LL', LL.Piece, 3, 2, 1, 1)
+puzzle.add_piece('Sample', Sample, 4, 0, 1, 1)
+puzzle.add_piece('NIDAQ', NIDAQ.Piece, 1, 4, 1, 2)
+puzzle.add_piece('Spot terminal', SerialTerminal.Piece, 0, 4, 1, 1)
+puzzle.add_piece('Spot trigger', Spot_trigger.Piece, 3, 4, 1, 1)
+puzzle.add_piece('AOM', AOM.Piece, 4, 4, 1, 2)
+puzzle.add_piece('LL', LL.Piece, 4, 2, 1, 1)
 # puzzle.add_piece('Thorlabs PM', ThorlabsPM.Piece, 3, 3, 1, 1)
 
 puzzle.show()
@@ -82,9 +83,9 @@ puzzle['Andor:autolevel'].set_value(True);
 puzzle['NIDAQ:connected'].set_value(True)
 
 ## Spot laser
-puzzle['Spot laser:COM'].get_value()
-puzzle['Spot laser:COM'].set_value('COM3')
-puzzle['Spot laser:connected'].set_value(True)
+puzzle['Spot terminal:COM'].get_value()
+puzzle['Spot terminal:COM'].set_value('COM3')
+puzzle['Spot terminal:connected'].set_value(True)
 
 ## Spot trigger
 puzzle['Spot trigger:counter'].set_value('CTR0')
@@ -104,7 +105,7 @@ puzzle['AOM:mod_in'].set_value(0.0);        # Voltage
 # +
 # %%pzp_script
 # Set sample & measurement details
-set:Sample:date:20250722
+set:Sample:date:20250725
 set:Sample:sample:SAMPLE
 set:Sample:part:PART
 
@@ -114,16 +115,17 @@ set:LL:end:5
 set:LL:N:40
 
 # Set i value - for filename
-set:Sample:i:1
+set:Sample:i:4
 
 ####################
 # Set filename & run
 set:LL:filename:data/DATA_{Sample:date}_{Sample:sample}_{Sample:part}_{Sample:i;:02d}.ds
 # -
 
-# %%play_notification_sound
+# # %%play_notification_sound
 # Run LL scan
 puzzle['LL'].actions['Scan']()
 mf.plot_ll_result()
 
+# --------
 
