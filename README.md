@@ -35,4 +35,4 @@ It contains basic, prewritten experiment code for standard measurement routines.
 7. To initialise the notebook GUI, run **Sections 00** and **Section 01**. Device initialisation can then be done either by running **Section 02** or manually with the GUI. Measurements can be automated using the code in **Section 03** and onward. Users are free to write additional code (and more sections) to control devices or perform other measurements.  
 
 ## Related Projects  
-[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main) - Pieces for devices communication and experiment automation.
+[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main) - Pieces for device communication and experiment automation.
