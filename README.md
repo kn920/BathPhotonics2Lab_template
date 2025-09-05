@@ -4,38 +4,35 @@ Experiment notebook template for the Photonics 2 Lab, Department of Physics, Uni
 
 ## Overview
 
-This template show how to use the modular **puzzlepiece** GUI module to allow control of device and experiment automation in a jupyter notebook.  
-This template contains the most basic, prewritten experiment codes for standard measurement rountines. It work together with the user-defined pieces to communicate with the hardware and perform measurements. These template is designed for the use in Bath Photonics 2 Lab.  
+This template shows how to use the modular **puzzlepiece** GUI module to control devices and automate experiments in a Jupyter notebook.  
+It contains basic, prewritten experiment code for standard measurement routines. It works together with user-defined pieces to communicate with hardware and perform measurements. This template is designed for use in the Bath Photonics 2 Lab.  
 
-## Standard routine (Bath Photonics 2 Lab)  
+## Standard Routine (Bath Photonics 2 Lab)  
 
-1. (_Not neccessarly everytime_) Sync the repository with Github for the latest version of template.
+1. (_Not necessary every time_) Sync the repository with GitHub to get the latest version of the template.  
 
-2. Duplicate the template folder and rename it (e.g., `<Date>_<Title_of_the_experiment>`)
+2. Duplicate the template folder and rename it (e.g., `<Date>_<Title_of_the_experiment>`).  
 
-2. In this folder, open Windows PowerShell by `Shift`+`right click`, and select `Open PowerShell window here`.
+3. In this folder, open Windows PowerShell by pressing `Shift` + right-click, and selecting **Open PowerShell window here**.  
 
-3. (_If vritual environment required_) Activate the vritual environment (e.g., venv, located in `C:/lab_automation/venv/`) by 
-```
-C:/lab_automation/venv/Scripts/Activate.ps1
-```
+4. (_If a virtual environment is required_) Activate the virtual environment (e.g., `venv`, located in `C:/lab_automation/venv/`) by running:  
+   ```powershell
+   C:/lab_automation/venv/Scripts/Activate.ps1
+   ```
 
-**Or**
+   **Or**, if you have a shortcut set up, simply run:  
+   ```powershell
+   venv
+   ```
 
-Run the shortcut
-```
-venv
-```
-if the shortcut is set.
+5. Open Jupyter Lab with:  
+   ```powershell
+   jupyter lab
+   ```
 
-4. Open Jupyter lab with 
-```
-Jupyter lab
-```
+6. Open the experiment notebook by right-clicking `experiment_notebook.py` and selecting **Open With → Notebook**.  
 
-5. Open the experiment notebook by right-click the  `experiment_notebook.py` and select `Open With -> Notebook`.
-
-6. To initalise the notebook GUI, run section 00 and 01. The device initialisation can then be done either by running section 02 or manually with the GUI. The measurement can be automated with the code in section 03 and onward. User are free to write any code to control the devices or perform other measurements. 
+7. To initialise the notebook GUI, run sections 00 and 01. Device initialisation can then be done either by running section 02 or manually with the GUI. Measurements can be automated using the code in section 03 and onward. Users are free to write additional code to control devices or perform other measurements.  
 
 ## Related Projects  
-[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main)
+[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main)  
