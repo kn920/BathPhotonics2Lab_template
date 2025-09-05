@@ -20,7 +20,7 @@ It contains basic, prewritten experiment code for standard measurement routines.
    C:/lab_automation/venv/Scripts/Activate.ps1
    ```
 
-   **Or**, if you have a shortcut set up, simply run:  
+   **Or**, if you have a PowerShell profile shortcut set up, simply run:  
    ```powershell
    venv
    ```
@@ -30,9 +30,9 @@ It contains basic, prewritten experiment code for standard measurement routines.
    jupyter lab
    ```
 
-6. Open the experiment notebook by right-clicking `experiment_notebook.py` and selecting **Open With → Notebook**.  
+6. In Jupyter Lab, open the experiment notebook by right-clicking `experiment_notebook.py` and selecting **Open With → Notebook**.  
 
-7. To initialise the notebook GUI, run sections 00 and 01. Device initialisation can then be done either by running section 02 or manually with the GUI. Measurements can be automated using the code in section 03 and onward. Users are free to write additional code to control devices or perform other measurements.  
+7. To initialise the notebook GUI, run **Sections 00** and **Section 01**. Device initialisation can then be done either by running **Section 02** or manually with the GUI. Measurements can be automated using the code in **Section 03** and onward. Users are free to write additional code (and more sections) to control devices or perform other measurements.  
 
 ## Related Projects  
-[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main)  
+[**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main) - Pieces for devices communication and experiment automation.
