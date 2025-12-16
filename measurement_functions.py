@@ -11,6 +11,7 @@ import os
 import winsound
 from IPython.core.magic import cell_magic, Magics, magics_class
 from IPython import get_ipython
+from pyqtgraph.Qt import QtCore
 
 
 # -
@@ -74,6 +75,9 @@ def plot_ll_result(ll_filepath=None):
     ax[1].set_xlabel('AOM Voltage (V)')
     ax[1].set_ylabel('Integrated counts')
     plt.show()
+
+# # Frame acquisition function
+
 
 
 # # Sound bytes

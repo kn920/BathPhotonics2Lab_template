@@ -45,7 +45,7 @@ class Sample(pzp.Piece):
 # Remember to change the debug flag as needed
 
 shell = get_ipython()
-puzzle = pzp.Puzzle(shell.kernel.app, "DMD scan", debug=True)
+puzzle = pzp.Puzzle(shell.kernel.app, "DMD scan", debug=False)
 
 folder = puzzle.add_folder(0, 0, 4, 4)
 folder.add_piece('Andor', Andor.Piece)
@@ -66,7 +66,7 @@ mf.puzzle = puzzle
 # # 02 - Device initialisation
 
 # +
-# Andor initialisation (First manually connect to Andor)
+# Andor initialisation (First connect to Andor manually)
 
 # puzzle['Andor:slit_width'].set_value(30)        # micrometers
 
@@ -91,6 +91,8 @@ puzzle['Spot terminal:connected'].set_value(True)
 puzzle['Spot trigger:counter'].set_value('CTR0')
 puzzle['Spot trigger:PFI port'].set_value('PFI12')
 puzzle['Spot trigger:Rep rate'].set_value(1.0)
+puzzle['Spot trigger:digital_in port'].set_value('port0/line0')
+puzzle['Spot trigger:Hardware trigger'].set_value(True)
 
 ## AOM
 puzzle['AOM:AO port'].set_value('AO0')
@@ -106,8 +108,8 @@ puzzle['AOM:mod_in'].set_value(0.0);        # Voltage
 # %%pzp_script
 # Set sample & measurement details
 set:Sample:date:20250725
-set:Sample:sample:SAMPLE
-set:Sample:part:PART
+set:Sample:sample:SAMPLE_NAME
+set:Sample:part:PART_NAME
 
 # Set scan parameters
 set:LL:start:0
@@ -115,17 +117,24 @@ set:LL:end:5
 set:LL:N:40
 
 # Set i value - for filename
-set:Sample:i:4
+set:Sample:i:1
 
 ####################
-# Set filename & run
+# Set filename (no need to change)
 set:LL:filename:data/DATA_{Sample:date}_{Sample:sample}_{Sample:part}_{Sample:i;:02d}.ds
 # -
 
-# # %%play_notification_sound
+# %%play_notification_sound
 # Run LL scan
 puzzle['LL'].actions['Scan']()
 mf.plot_ll_result()
 
 # --------
 
+
+# Testing - Measurement sequence
+import time
+for i in range(10):
+    frame = puzzle['Andor'].get_image(signal_delay = 50, timeout_ms=5000)
+    print(frame[0][0])
+    time.sleep(1)
