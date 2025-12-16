@@ -91,8 +91,6 @@ puzzle['Spot terminal:connected'].set_value(True)
 puzzle['Spot trigger:counter'].set_value('CTR0')
 puzzle['Spot trigger:PFI port'].set_value('PFI12')
 puzzle['Spot trigger:Rep rate'].set_value(1.0)
-puzzle['Spot trigger:digital_in port'].set_value('port0/line0')
-puzzle['Spot trigger:Hardware trigger'].set_value(True)
 
 ## AOM
 puzzle['AOM:AO port'].set_value('AO0')
