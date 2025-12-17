@@ -76,9 +76,6 @@ def plot_ll_result(ll_filepath=None):
     ax[1].set_ylabel('Integrated counts')
     plt.show()
 
-# # Frame acquisition function
-
-
 
 # # Sound bytes
 
