@@ -32,7 +32,7 @@ It contains basic, prewritten experiment code for standard measurement routines.
 
 6. In Jupyter Lab, open the experiment notebook by right-clicking `experiment_notebook.py` and selecting **Open With → Notebook**.  
 
-7. To initialise the notebook GUI, run **Sections 00** to setup the GUI. The setting of device parameters can then be done either by running **Section 01** or manually with the GUI. The basic power-dependent (LL) measurement module is illustrated in **Section 03**, which can be automated using the code or by interacting with the GUI. Users are free to write additional code (and more sections) to control devices or perform other measurements (as long as the original template copy is untouched).  
+7. To initialise the notebook GUI, run **Sections 00** to setup the GUI. The setting of device parameters can then be done either by running **Section 01** or manually with the GUI. The basic power-dependent (LL) measurement module is illustrated in **Section 02**, which can be automated using the code or by interacting with the GUI. Users are free to write additional code (and more sections) to control devices or perform other measurements (as long as the original template copy is untouched).  
 
 ## Related Projects  
 [**BathPhotonics2Lab_pieces**](https://github.com/kn920/BathPhotonics2Lab_pieces/tree/main) - Pieces for device communication and experiment automation.
